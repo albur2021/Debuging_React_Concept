@@ -13,7 +13,7 @@ const App = () => {
   const addGoalHandler = enteredText => {
     setCourseGoals(prevGoals => {
       const updatedGoals = [...prevGoals];
-      updatedGoals.unshift({ text: enteredText, id: 'goal1' });
+      updatedGoals.unshift({ text: enteredText, id: Math.random().toString() });//was hard coded by 'goal1'-string and therefore was updated by dynimic and unique id
       return updatedGoals;
     });
   };
@@ -36,13 +36,15 @@ const App = () => {
   }
 
   return (
-
-      <section id="goal-form">
+    <div>
+        <section id="goal-form">
         <CourseInput onAddGoal={addGoalHandler} />
       </section>
       <section id="goals">
         {content}
       </section>
+    </div>
+     
 
   );
 };
